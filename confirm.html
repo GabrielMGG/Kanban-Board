@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — Confirmar E-mail</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/confirm.css">
+</head>
+
+<body>
+
+  <div class="card" id="mainCard">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <div class="logo-badge">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      TaskFlow
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div id="confirmView">
+
+      <!-- ÍCONE ENVELOPE -->
+      <div class="envelope-wrap">
+        <div class="envelope-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="M2 7l10 7 10-7" />
+          </svg>
+        </div>
+        <div class="envelope-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+        </div>
+      </div>
+
+      <h1 class="confirm-title">Verifique seu e-mail</h1>
+      <p class="confirm-desc">Enviamos um código de 6 dígitos para</p>
+      <span class="confirm-email"></span>
+
+      <p class="otp-label">Digite o código</p>
+
+      <form id="token">
+        <!-- INPUTS OTP -->
+        <div class="otp-wrap" id="otpWrap">
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+          <div class="otp-sep">—</div>
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+          <input class="otp-input" type="text" maxlength="1" inputmode="numeric" pattern="[0-9]"
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" required />
+
+        </div>
+
+        <button class="btn-confirm" id="btnConfirm" type="submit">Confirmar e-mail</button>
+      </form>
+      <div class="resend-area">
+        Não recebeu?
+        <button class="resend-btn" id="resendBtn" disabled>
+          <span id="msg">Reenviar em</span> <span id="countdown"></span>
+        </button>
+      </div>
+
+      <a href="login.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 5l-7 7 7 7" />
+        </svg>
+        Voltar para o login
+      </a>
+
+    </div><!-- /#confirmView -->
+
+    <!-- ESTADO SUCESSO -->
+    <div class="success-overlay" id="successView">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M20 6L9 17l-5-5" />
+        </svg>
+      </div>
+      <h2 class="success-title">E-mail confirmado!</h2>
+      <p class="success-desc">Sua conta foi verificada com sucesso.<br>Bem-vindo ao TaskFlow.</p>
+      <a href="index.html" class="btn-go">
+        Ir para o app
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
+  </div><!-- /.card -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/confirm.js"></script>
+</body>
+
+</html>
